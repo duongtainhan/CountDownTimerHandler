@@ -1,12 +1,14 @@
 package com.example.duongtainhan555.countdowntimerhandler;
 
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -31,19 +33,26 @@ public class MainActivity extends AppCompatActivity {
                 //index = rd.nextInt(r.length);
                 //imgPicture.setImageResource(r[index]);
 
-                countDownTimer = new CountDownTimer(5000, 1000) {
-                    @Override
-                    public void onTick(long l) {
-                        int time = (int) l;
-                        Log.d("DDD", (time / 1000) + "");
-                    }
+                //countDownTimer = new CountDownTimer(5000, 1000) {
+                    //@Override
+                    //public void onTick(long l) {
+                    //    int time = (int) l;
+                    //    Log.d("DDD", (time / 1000) + "");
+                    //}
 
+                    //@Override
+                    //public void onFinish() {
+                     //
+                    //}
+                //};
+               // countDownTimer.start();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
                     @Override
-                    public void onFinish() {
-
+                    public void run() {
+                        Toast.makeText(MainActivity.this,"AAA",Toast.LENGTH_SHORT).show();
                     }
-                };
-                countDownTimer.start();
+                },1000);
             }
         });
 
